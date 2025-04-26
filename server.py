@@ -10,9 +10,7 @@ def get_transcript():
         return jsonify({'error': 'Missing video ID'}), 400
 
     try:
-        fetcher = TranscriptListFetcher(video_id)
-        transcript_list = fetcher.get_transcript()
-        full_text = "\n".join([entry['text'] for entry in transcript_list])
+        full_text = fetch_transcript(video_id)
         return jsonify({'video_id': video_id, 'transcript': full_text})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
