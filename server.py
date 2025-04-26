@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from _transcripts import TranscriptListFetcher
+from _transcripts import fetch_transcript
 
 app = Flask(__name__)
 
